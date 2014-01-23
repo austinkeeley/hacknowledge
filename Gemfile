@@ -35,6 +35,9 @@ end
 # Use devise to handle user authentication and authorization
 gem 'devise'
 
+# omniauth!
+gem 'omniauth-twitter'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
