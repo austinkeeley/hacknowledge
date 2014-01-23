@@ -1,4 +1,7 @@
 Hacknowledge::Application.routes.draw do
+  devise_for :users
+  resources :authentications
+
   resources :users
 
   resources :teams
