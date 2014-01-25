@@ -25,6 +25,32 @@ class User < ActiveRecord::Base
     false
   end
 
+  # Gets a readable name for this user.  This doesn't uniquely identify them
+  # and should only be used for display purposes only.
+  def display_name
+    name = ''
+
+    # Use the first and last name if they are available
+    if first_name
+      name += first_name
+    end
+    if last_name
+      name += ' ' + last_name
+    end
+
+    # if no name then try the email address
+    if name == ''
+      name = email
+    end
+
+    # if no email, then fall back on some dumb thing.
+    if name == ''
+      name = 'A registered, but unnamed user.'
+    end
+
+    return name
+  end
+
 
   # Using an auth object captured from an omniauth callback, find the user in 
   # the database (or create a new user and add this as an authentication method).
