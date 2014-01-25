@@ -26,9 +26,8 @@ class User < ActiveRecord::Base
   end
 
 
-  # Using an auth object captured from an omniauth callback,
-  # find the user in the database or create a new user and
-  # add this as an authentication method.
+  # Using an auth object captured from an omniauth callback, find the user in 
+  # the database (or create a new user and add this as an authentication method).
   def self.from_omniauth(auth)
     uid = auth.uid
     provider = auth.provider
