@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :omniauthable #, :validatable
-  validates_presence_of :first_name, :last_name
+  #validates_presence_of :first_name, :last_name
 
   has_many :participants
   has_many :events, :through => :participants
@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
       user = User.new
       authentication.user = user
       user.save
+      authentication.save
     end
     return authentication.user
   end

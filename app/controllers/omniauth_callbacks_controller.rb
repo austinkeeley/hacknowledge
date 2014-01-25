@@ -5,7 +5,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     u = User.from_omniauth(request.env['omniauth.auth'])
     
     if u
-      sign_in u
+      sign_in u  # will save u
     else
       raise request.env['omniauth.auth'].to_yaml
 
