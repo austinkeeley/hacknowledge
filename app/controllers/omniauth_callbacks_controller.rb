@@ -2,17 +2,15 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def all
 
-    u = User.from_omniauth(request.env['omniauth.auth'])
+    user = User.from_omniauth(request.env['omniauth.auth'])
     
-    if u
-      sign_in u  # will save u
+    if user
+      sign_in_and_redirect user
     else
+      # Probably should clean this up some.  Actually since this contains
+      # your keys, you definately need to get rid of this before going live.
       raise request.env['omniauth.auth'].to_yaml
-
     end
-    # Here you should find authentication object that matcehs the omniauth.auth
-    # details and then return that user.  This won't work with additional
-    # authentication methods though... you'll have to figure that out. 
     
 
   end
