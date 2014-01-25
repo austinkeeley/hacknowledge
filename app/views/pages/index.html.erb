@@ -1,1 +1,10 @@
 <h1>hacknowledge.io</h1>
+
+<!-- move this to a partial later -->
+
+<% if user_signed_in? %>
+  Signed in as <%= current_user.display_name %>
+  <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+<% else %>
+  You need to sign in :( <%= link_to "Sign in", new_user_session_path %>
+<% end %>
