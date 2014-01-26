@@ -10,5 +10,32 @@
   <%= @user.last_name %>
 </p>
 
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @user.title %>
+</p>
+
+<p>
+  <strong>Personal Bio:</strong>
+  <%= @user.description %>
+</p>
+
+<p>
+  <strong>Linked Accounts</strong>
+  <ul>
+  <% @user.authentications.each do |auth| %>
+    <li>
+  <%= auth.provider %>
+  </li>
+  <% end %>
+</ul>
+</p>
+
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

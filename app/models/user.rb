@@ -25,6 +25,22 @@ class User < ActiveRecord::Base
     false
   end
 
+  # Creates a new authentication and adds it to this user
+  def add_authentication(provider, uid)
+    # Only allow one authentication provider per use, e.g. don't let people
+    # have multiple Twitter accounts linked.  That could get confusing and in
+    # general, people only have one of each anyway.
+    authentications.each do |auth|
+      if auth.provider == provider
+        return auth
+      end
+    end
+    auth = Authentication.new(:provider => provider, :uid => uid)
+    auth.user = self
+    auth.save
+    return auth
+  end
+
   # Gets a readable name for this user.  This doesn't uniquely identify them
   # and should only be used for display purposes only.
   def display_name
@@ -59,6 +75,12 @@ class User < ActiveRecord::Base
     provider = auth.provider
 
     authentication = Authentication.find_or_create_by(:provider => provider, :uid => uid)
+    
+    # if we're currently logged in, then add the authentication to the current user
+    #if user_signed_in?
+    #  authentication.user = current_user
+    #  return current_user
+    #else
     if !authentication.user
       user = User.new
       authentication.user = user

@@ -1,3 +1,6 @@
+# authentications_controller.rb
+# Will most likely delete this later, or maybe keep it around but 
+# lock it down to just the current user.
 class AuthenticationsController < ApplicationController
   before_action :set_authentication, only: [:show, :edit, :update, :destroy]
 

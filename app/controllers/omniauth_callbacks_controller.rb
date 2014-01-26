@@ -2,8 +2,19 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def all
 
-    user = User.from_omniauth(request.env['omniauth.auth'])
-    
+    auth = request.env['omniauth.auth']
+
+    # if the user is already signed in, then we must be adding
+    # another authentication method.
+    if user_signed_in?
+      user = current_user
+      user.add_authentication(auth.provider, auth.uid)
+    else
+      # Otherwise, use our railscast code to create a new user
+      # and authentication at the same time.
+      user = User.from_omniauth(request.env['omniauth.auth'])
+    end
+
     if user
       sign_in_and_redirect user
     else
