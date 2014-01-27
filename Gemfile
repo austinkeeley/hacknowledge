@@ -38,6 +38,10 @@ gem 'devise'
 # omniauth!
 gem 'omniauth-twitter'
 gem 'omniauth-linkedin'
+gem 'omniauth-facebook'
+
+# The eventbrite api gem
+gem 'eventbrite-client'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
