@@ -9,4 +9,6 @@ Hacknowledge::Application.routes.draw do
 
   root 'pages#index'
 
+  get '/eventbrite/:eventbrite_event_id', :to => 'events#eventbrite'
+
 end

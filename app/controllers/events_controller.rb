@@ -63,11 +63,29 @@ class EventsController < ApplicationController
 
   # Builds an Event object using parameters from Eventbrite
   # eventbrite_event_id - The ID of the event in Eventbrite
-  def eventbrite(eventbrite_event_id)
+  def eventbrite
+    eventbrite_event_id = params[:eventbrite_event_id]
     eb_auth_tokens = {:app_key => ENV['EB_APP_KEY'], :user_key => ENV['EB_USER_KEY']}
     eb_client = EventbriteClient.new(eb_auth_tokens)
     response = eb_client.event_get( {:id => eventbrite_event_id} )
-    render :json => response
+
+    event = Event.new
+    event.name = response['event']['title']
+    event.organizer_name = response['event']['organizer']['name']
+    event.organizer_description = response['event']['organizer']['description']
+    event.venue_name = response['event']['venue']['name']
+    event.address_1 = response['event']['venue']['address']
+    event.address_2 = response['event']['venue']['address_2']
+    event.city = response['event']['venue']['city']
+    event.region = response['event']['venue']['region']
+    event.postal_code = response['event']['venue']['postal_code']
+    event.country = response['event']['venue']['country']
+    event.latitude = response['event']['venue']['latitude']
+    event.longitude = response['event']['venue']['longitude']
+    event.start = response['event']['start_date']
+    event.end = response['event']['end_date']
+    
+    render :json => event
   end
 
   private
