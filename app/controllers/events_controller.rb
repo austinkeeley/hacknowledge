@@ -61,6 +61,15 @@ class EventsController < ApplicationController
     end
   end
 
+  # Builds an Event object using parameters from Eventbrite
+  # eventbrite_event_id - The ID of the event in Eventbrite
+  def eventbrite(eventbrite_event_id)
+    eb_auth_tokens = {:app_key => ENV['EB_APP_KEY'], :user_key => ENV['EB_USER_KEY']}
+    eb_client = EventbriteClient.new(eb_auth_tokens)
+    response = eb_client.event_get( {:id => eventbrite_event_id} )
+    render :json => response
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event

@@ -39,6 +39,7 @@ gem 'devise'
 gem 'omniauth-twitter'
 gem 'omniauth-linkedin'
 gem 'omniauth-facebook'
+gem 'omniauth-eventbrite'
 
 # The eventbrite api gem
 gem 'eventbrite-client'

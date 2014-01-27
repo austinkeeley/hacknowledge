@@ -83,6 +83,8 @@ GEM
     omniauth (1.2.1)
       hashie (>= 1.2, < 3)
       rack (~> 1.0)
+    omniauth-eventbrite (0.0.5)
+      omniauth-oauth2 (~> 1.1.0)
     omniauth-facebook (1.6.0)
       omniauth-oauth2 (~> 1.1)
     omniauth-linkedin (0.1.0)
@@ -166,6 +168,7 @@ DEPENDENCIES
   eventbrite-client
   jbuilder (~> 1.2)
   jquery-rails
+  omniauth-eventbrite
   omniauth-facebook
   omniauth-linkedin
   omniauth-twitter
