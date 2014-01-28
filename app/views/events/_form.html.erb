@@ -1,3 +1,37 @@
+<script type="text/javascript">
+    function from_eventbrite(id) {
+        $.ajax('/eventbrite/' + id, {
+            dataType: 'json',
+            success: function(data, status) {
+            
+            $('#name').val(data.name);
+            $('#organizer_name').val(data.organizer_name);
+            $('#organizer_description').val(data.organizer_description);
+            $('#venue_name').val(data.venue_name);
+            $('#address_1').val(data.address_1);
+            $('#address_2').val(data.address_2);
+            $('#city').val(data.city);
+            $('#postal_code').val(data.postal_code);
+            $('#region').val(data.region);
+            $('#country').val(data.country);
+            $('#latitude').val(data.latitude);
+            $('#longitude').val(data.longitude);
+            $('#start').val(data.start);
+            $('#end').val(data.end);
+            }
+        });
+    }
+
+  $(function() {
+    $('#eventbriteButton').click(function() {
+        id = $('#eventbrite_id').val();
+        from_eventbrite(id);
+        });
+    });
+</script>
+
+<input type="text" id="eventbrite_id" /><input id="eventbriteButton" type="button" value="Get from Eventbrite" />
+
 <%= form_for(@event) do |f| %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
@@ -13,17 +47,63 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, {:id => 'name'} %>
+</div>
+<div class="field">
+    <%= f.label :start %><br />
+    <%= f.text_field :start, {:id => 'start'} %>
+</div>
+<div class="field">
+    <%= f.label :end %><br />
+    <%= f.text_field :end, {:id => 'end'} %>
+</div>
+  <div class="field">
+      <%= f.label :organizer_name %><br />
+      <%= f.text_field :organizer_name, {:id => 'organizer_name'} %>
   </div>
   <div class="field">
-    <%= f.label :start %><br>
-    <%= f.datetime_select :start %>
+      <%= f.label :organizer_description %><br />
+      <%= f.text_area :organizer_description, {:id => 'organizer_description' } %>
   </div>
   <div class="field">
-    <%= f.label :end %><br>
-    <%= f.datetime_select :end %>
+      <%= f.label :venue_name %><br />
+      <%= f.text_field :venue_name, {:id => 'venue_name'} %>
   </div>
+  <div class="field">
+      <%= f.label :address %><br />
+      <%= f.text_field :address_1, {:id => 'address_1'} %>
+  </div>
+  <div class="field">
+      <%= f.label :address_2 %><br />
+      <%= f.text_field :address_2, {:id => 'address_2'} %>
+  </div>
+  <div>
+      <%= f.label :city %><br />
+      <%= f.text_field :city, {:id => 'city'} %>
+  </div>
+  <div>
+      <%= f.label :region %><br />
+      <%= f.text_field :region, {:id => 'region'} %>
+  </div>
+  <div>
+      <%= f.label :postal_code %><br />
+      <%= f.text_field :postal_code, {:id => 'postal_code'} %>
+  </div>
+  <div>
+      <%= f.label :country %><br />
+      <%= f.text_field :country, {:id => 'country'} %>
+  </div>
+  <div>
+      <%= f.label :latitude %><br />
+      <%= f.text_field :latitude, {:id => 'latitude'} %>
+  </div>
+  <div>
+      <%= f.label :longitude %><br />
+      <%= f.text_field :longitude, {:id => 'longitude'} %><br />
+    </div>
+
+
   <div class="actions">
-    <%= f.submit %>
+      <%= f.submit %>
   </div>
 <% end %>
