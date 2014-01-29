@@ -1,0 +1,25 @@
+<h1>Listing swags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @swags.each do |swag| %>
+      <tr>
+        <td><%= link_to 'Show', swag %></td>
+        <td><%= link_to 'Edit', edit_swag_path(swag) %></td>
+        <td><%= link_to 'Destroy', swag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Swag', new_swag_path %>
