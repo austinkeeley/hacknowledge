@@ -8,6 +8,9 @@ class Event < ActiveRecord::Base
   has_many :teams
   has_many :participants
 
+  # We've got sponsors
+  has_many :sponsors
+
   # Every event needs an admin who is ultimately
   # in control of things, although they can
   # delegate power to other users as well.

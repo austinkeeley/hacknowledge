@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140129020756) do
     t.string   "name"
     t.text     "description"
     t.string   "url"
+    t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

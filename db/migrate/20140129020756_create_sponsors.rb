@@ -4,6 +4,7 @@ class CreateSponsors < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.string :url
+      t.integer :event_id
       t.timestamps
     end
   end
