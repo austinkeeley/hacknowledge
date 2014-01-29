@@ -1,4 +1,6 @@
 Hacknowledge::Application.routes.draw do
+  resources :sponsors
+
   devise_for :users, :controllers => {:omniauth_callbacks => 'omniauth_callbacks'}
   
   resources :authentications
