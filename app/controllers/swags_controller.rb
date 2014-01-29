@@ -69,6 +69,6 @@ class SwagsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def swag_params
-      params[:swag]
+      params.require(:swag).permit(:name, :description)
     end
 end

@@ -1,4 +1,6 @@
 Hacknowledge::Application.routes.draw do
+  resources :prizes
+
   resources :swags
 
   resources :sponsors

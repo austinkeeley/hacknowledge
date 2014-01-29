@@ -1,0 +1,31 @@
+<h1>Listing prizes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Sponsor</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prizes.each do |prize| %>
+      <tr>
+        <td><%= prize.name %></td>
+        <td><%= prize.description %></td>
+        <td><%= prize.sponsor_id %></td>
+        <td><%= link_to 'Show', prize %></td>
+        <td><%= link_to 'Edit', edit_prize_path(prize) %></td>
+        <td><%= link_to 'Destroy', prize, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Prize', new_prize_path %>
