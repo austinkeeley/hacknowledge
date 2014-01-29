@@ -8,8 +8,9 @@ class Event < ActiveRecord::Base
   has_many :teams
   has_many :participants
 
-  # We've got sponsors
+  # We've got sponsors and swags!
   has_many :sponsors
+  has_many :swags
 
   # Every event needs an admin who is ultimately
   # in control of things, although they can
