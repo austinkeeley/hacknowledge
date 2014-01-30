@@ -6,6 +6,9 @@ class Participant < ActiveRecord::Base
   belongs_to :event
   belongs_to :user
 
+  # A Partcipant belongs on a team
+  belongs_to :team
+
   # A role is just at title to identify you at the event,
   # such as "developer" or "marketing guru".
   validates_presence_of :role

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140130005215) do
+ActiveRecord::Schema.define(version: 20140130012727) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20140130005215) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "event_id"
+    t.integer  "team_id"
   end
 
   create_table "prizes", force: true do |t|
