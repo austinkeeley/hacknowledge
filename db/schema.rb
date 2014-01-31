@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140130013427) do
+ActiveRecord::Schema.define(version: 20140131001440) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id"
@@ -77,6 +77,15 @@ ActiveRecord::Schema.define(version: 20140130013427) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "stack_components", force: true do |t|
+    t.string   "name",       null: false
+    t.integer  "team_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stack_components", ["name", "team_id"], name: "index_stack_components_on_name_and_team_id", unique: true
 
   create_table "swags", force: true do |t|
     t.string   "name"
