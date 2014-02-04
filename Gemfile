@@ -41,6 +41,7 @@ gem 'omniauth-linkedin'
 gem 'omniauth-facebook'
 gem 'omniauth-eventbrite'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-github'
 
 # The eventbrite api gem
 gem 'eventbrite-client'
