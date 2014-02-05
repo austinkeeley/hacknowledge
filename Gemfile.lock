@@ -49,6 +49,7 @@ GEM
     execjs (2.0.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    gravatar_image_tag (1.2.0)
     hashie (2.0.5)
     hike (1.2.3)
     httparty (0.8.3)
@@ -172,6 +173,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   eventbrite-client
+  gravatar_image_tag
   jbuilder (~> 1.2)
   jquery-rails
   omniauth-eventbrite

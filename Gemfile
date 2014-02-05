@@ -46,6 +46,8 @@ gem 'omniauth-github'
 # The eventbrite api gem
 gem 'eventbrite-client'
 
+gem 'gravatar_image_tag'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
