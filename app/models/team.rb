@@ -6,8 +6,8 @@ class Team < ActiveRecord::Base
   belongs_to :event
   has_many :participants
 
-  validates presence_of :name
-  validates presence_of :description
+  validates_presence_of :name
+  validates_presence_of :description
 
   has_many :stack_components
   
