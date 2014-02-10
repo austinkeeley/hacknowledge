@@ -31,6 +31,14 @@
     <%= f.label :personal_bio %><br />
     <%= f.text_area :description %>
   </div>
+
+  <div class="field">
+    <%= f.label :avatar %><br />
+    <% @user.authentications.each do |auth| %>
+      <%= auth.provider %><br />
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

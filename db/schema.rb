@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140205012106) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "authentications", force: true do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -78,7 +75,7 @@ ActiveRecord::Schema.define(version: 20140205012106) do
     t.datetime "updated_at"
   end
 
-  add_index "social_network_links", ["user_id", "network"], name: "index_social_network_links_on_user_id_and_network", unique: true, using: :btree
+  add_index "social_network_links", ["user_id", "network"], name: "index_social_network_links_on_user_id_and_network", unique: true
 
   create_table "sponsors", force: true do |t|
     t.string   "name"
@@ -96,7 +93,7 @@ ActiveRecord::Schema.define(version: 20140205012106) do
     t.datetime "updated_at"
   end
 
-  add_index "stack_components", ["name", "team_id"], name: "index_stack_components_on_name_and_team_id", unique: true, using: :btree
+  add_index "stack_components", ["name", "team_id"], name: "index_stack_components_on_name_and_team_id", unique: true
 
   create_table "swags", force: true do |t|
     t.string   "name"
@@ -134,6 +131,6 @@ ActiveRecord::Schema.define(version: 20140205012106) do
     t.string   "title"
   end
 
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

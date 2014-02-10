@@ -49,7 +49,7 @@ gem 'eventbrite-client'
 
 gem 'gravatar_image_tag'
 
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.1.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
